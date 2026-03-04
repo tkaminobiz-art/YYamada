@@ -276,7 +276,7 @@ a:focus-visible {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========== Hero（山下知事サイト風：写真+グラデ+名前オーバーレイ）========== */
+/* ========== Hero（山下知事サイト風：左＝緑+名前+サブコピー / 右＝写真の2カラム）========== */
 .hero {
   width: 100%;
   margin: 0;
@@ -284,36 +284,38 @@ a:focus-visible {
   overflow: hidden;
 }
 
-.hero-yamashita .hero-inner {
+.hero-two-col .hero-inner-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 60vh;
+  max-height: 85vh;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-48) clamp(24px, 6vw, 80px);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 40%, var(--teal) 100%);
+}
+
+.hero-right {
   position: relative;
-  width: 100%;
-  min-height: 70vh;
+  background: linear-gradient(180deg, var(--bar-green) 0%, rgba(255,255,255,0.95) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-48) var(--space-24);
+  padding: var(--space-24);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26, 77, 46, 0.75) 0%, rgba(15, 51, 32, 0.9) 50%, rgba(0, 77, 64, 0.85) 100%);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 900px;
+.hero-right .hero-photo {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
 }
 
 .hero-org {
@@ -326,12 +328,20 @@ a:focus-visible {
 .hero-name {
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
-  font-size: clamp(48px, 10vw, 96px);
+  font-size: clamp(40px, 6vw, 72px);
   line-height: 1.1;
   letter-spacing: 0.08em;
   color: var(--white);
+  margin: 0 0 var(--space-16);
+}
+
+.hero-subcopy {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.95);
   margin: 0;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+  max-width: 28em;
 }
 
 @media (min-width: 769px) {
@@ -340,21 +350,48 @@ a:focus-visible {
   }
 }
 
-/* ========== セクションバー（山下知事サイト風・新着情報）========== */
+@media (max-width: 768px) {
+  .hero-two-col .hero-inner-two-col {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .hero-left {
+    order: 1;
+    padding: var(--space-32) var(--space-24);
+    min-height: 40vh;
+  }
+
+  .hero-right {
+    order: 2;
+    padding: var(--space-24);
+  }
+
+  .hero-right .hero-photo {
+    max-width: 320px;
+  }
+}
+
+/* ========== セクションバー（山下知事サイト風・全セクション統一）========== */
+.bar-label {
+  display: block;
+  width: 100%;
+  padding: var(--space-16) var(--space-24);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--primary-dark);
+  margin-bottom: var(--space-48);
+}
+
 .section-bar {
   padding-top: 0;
   padding-bottom: var(--space-80);
 }
 
 .section-bar .bar-label {
-  display: block;
-  width: 100%;
-  padding: var(--space-16) var(--space-24);
-  background: var(--bar-green);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--primary-dark);
   margin-bottom: var(--space-48);
 }
 
@@ -364,8 +401,47 @@ a:focus-visible {
 
 .section-message .bar-label,
 .section-policy .bar-label,
-.section-results .bar-label {
+.section-results .bar-label,
+.section-assembly .bar-label,
+.section-activity .bar-label,
+.section-profile .bar-label {
   background: var(--bar-green);
+}
+
+.section-cta .bar-label-cta {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.section-assembly,
+.section-activity,
+.section-profile {
+  padding-top: 0;
+}
+
+.section-assembly .container,
+.section-activity .container,
+.section-profile .container {
+  padding-top: var(--space-48);
+}
+
+.section-cta {
+  padding-top: 0;
+}
+
+.section-cta .container {
+  padding-top: var(--space-48);
+}
+
+.section-assembly .bar-label,
+.section-activity .bar-label,
+.section-profile .bar-label {
+  margin-bottom: 0;
+}
+
+.section-cta .bar-label-cta {
+  margin-bottom: 0;
+  padding: var(--space-16) var(--space-24);
 }
 
 .bar-label-policy {
@@ -617,7 +693,7 @@ a:focus-visible {
 .section-assembly { background: rgba(27, 54, 93, 0.04); padding-top: var(--space-120); padding-bottom: 100px; }
 .section-activity { background: var(--bg); padding-top: 100px; }
 .section-profile { background: var(--bg); padding-bottom: 160px; }
-.section-cta { background: var(--primary-dark); color: var(--white); padding: 100px 0 120px; }
+.section-cta { background: var(--primary-dark); color: var(--white); padding: 0 0 120px; }
 
 .section-cta .section-title,
 .section-cta .section-lead,
@@ -1139,8 +1215,8 @@ a:focus-visible {
 
 /* ========== Responsive ========== */
 @media (max-width: 1024px) {
-  .hero-yamashita .hero-inner {
-    min-height: 60vh;
+  .hero-two-col .hero-inner-two-col {
+    min-height: 55vh;
   }
 
   .hero {

@@ -231,24 +231,44 @@ a:focus-visible {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========== Hero ========== */
+/* ========== Hero（フルサイズ・画面いっぱい）========== */
 .hero {
-  padding: var(--space-80) 0 var(--space-120);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .hero-inner {
-  max-width: var(--content-max);
-  margin: 0 auto;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
   padding-left: clamp(24px, 5vw, 80px);
   padding-right: clamp(24px, 5vw, 80px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-48);
-  align-items: center;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 70%);
+  pointer-events: none;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 560px;
+  color: var(--white);
 }
 
 .hero-catch {
@@ -257,15 +277,17 @@ a:focus-visible {
   font-size: clamp(28px, 4.5vw, 48px);
   line-height: 1.25;
   letter-spacing: 0.06em;
-  color: var(--text);
+  color: var(--white);
   margin: 0 0 var(--space-24);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-sub {
   font-size: clamp(15px, 1.1vw, 17px);
   line-height: 1.9;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.95);
   margin: 0 0 var(--space-32);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-badges {
@@ -279,32 +301,22 @@ a:focus-visible {
 
 .hero-badges li {
   font-size: 14px;
-  color: var(--primary);
+  color: var(--white);
   font-weight: 500;
   padding: 6px 14px;
-  background: rgba(26, 77, 46, 0.08);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: var(--radius);
+  backdrop-filter: blur(4px);
 }
 
 .hero-micro {
   font-size: 14px;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0 0 var(--space-24);
 }
 
 .hero-content .btn {
   margin-top: var(--space-8);
-}
-
-.hero-visual {
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-card);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ========== Sections common ========== */
@@ -603,13 +615,12 @@ a:focus-visible {
 /* ========== Responsive ========== */
 @media (max-width: 1024px) {
   .hero-inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-48);
-    text-align: center;
+    justify-content: center;
   }
 
   .hero-content {
     max-width: none;
+    text-align: center;
   }
 
   .hero-badges {
@@ -662,10 +673,6 @@ a:focus-visible {
 
   .section {
     padding: var(--space-80) 0;
-  }
-
-  .hero {
-    padding: var(--space-48) 0 var(--space-80);
   }
 }
 

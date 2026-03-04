@@ -380,8 +380,15 @@ a:focus-visible {
 .section-cta .cta-note { font-size: 14px; opacity: 0.85; margin-top: var(--space-32); }
 
 /* ========== MESSAGE（ごあいさつ）========== */
-.message-greeting {
+.message-greeting-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-48);
+  align-items: start;
   margin-bottom: var(--space-48);
+}
+
+.message-greeting {
   max-width: 640px;
 }
 
@@ -390,6 +397,19 @@ a:focus-visible {
   font-size: clamp(15px, 1.1vw, 17px);
   line-height: 2;
   color: var(--text-light);
+}
+
+.message-greeting-img {
+  margin: 0;
+}
+
+.message-greeting-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .subsection-title {
@@ -411,13 +431,29 @@ a:focus-visible {
 }
 
 .message-card {
-  padding: var(--space-32);
+  padding: 0 0 var(--space-32);
   padding-left: var(--space-24);
   background: var(--white);
   border-radius: 0 var(--radius-card) var(--radius-card) 0;
   border-left: 4px solid var(--navy);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  overflow: hidden;
+}
+
+.message-card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin-bottom: var(--space-16);
+}
+
+.message-card .message-num,
+.message-card .message-title,
+.message-card p {
+  padding-right: var(--space-32);
 }
 
 .message-card:hover {
@@ -500,6 +536,19 @@ a:focus-visible {
 
 .policy-link:hover {
   text-decoration: underline;
+}
+
+.section-img {
+  margin: 0 0 var(--space-48);
+}
+
+.section-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 /* ========== RESULTS（実績・数字を前面に）========== */
@@ -614,6 +663,21 @@ a:focus-visible {
 }
 
 /* ========== ACTIVITY ========== */
+.activity-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+  margin-bottom: var(--space-48);
+}
+
+.activity-photos img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
 .activity-blocks {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -647,6 +711,30 @@ a:focus-visible {
 
 /* ========== PROFILE ========== */
 .profile-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-48);
+  align-items: start;
+  max-width: 100%;
+}
+
+.profile-photos {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.profile-photos img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.profile-main {
   max-width: 640px;
 }
 
@@ -685,6 +773,19 @@ a:focus-visible {
 }
 
 /* ========== CTA section ========== */
+.cta-img {
+  margin: 0 0 var(--space-32);
+}
+
+.cta-img img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+}
+
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -734,6 +835,22 @@ a:focus-visible {
 @media (max-width: 1024px) {
   .hero {
     max-width: 100%;
+  }
+
+  .message-greeting-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .message-greeting-img {
+    order: -1;
+  }
+
+  .profile-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-photos {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .fv-intro {
@@ -813,5 +930,9 @@ a:focus-visible {
 
   .cta-buttons .btn {
     width: 100%;
+  }
+
+  .activity-photos {
+    grid-template-columns: 1fr;
   }
 }

@@ -231,66 +231,55 @@ a:focus-visible {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========== Hero（フルサイズ・画面いっぱい）========== */
+/* ========== Hero（画像のみ・ノートPCで全体表示）========== */
 .hero {
-  position: relative;
-  min-height: 100vh;
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
   overflow: hidden;
 }
 
 .hero-inner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  padding-left: clamp(24px, 5vw, 80px);
-  padding-right: clamp(24px, 5vw, 80px);
+  position: relative;
+  width: 100%;
+  line-height: 0;
 }
 
 .hero-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  display: block;
+  vertical-align: top;
+  object-fit: contain;
+  object-position: center top;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 70%);
-  pointer-events: none;
+/* ========== FV下のテキストセクション ========== */
+.fv-intro {
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 560px;
-  color: var(--white);
-}
-
-.hero-catch {
+.fv-catch {
   font-family: 'Noto Serif JP', serif;
   font-weight: 400;
   font-size: clamp(28px, 4.5vw, 48px);
   line-height: 1.25;
   letter-spacing: 0.06em;
-  color: var(--white);
+  color: var(--text);
   margin: 0 0 var(--space-24);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.hero-sub {
+.fv-sub {
   font-size: clamp(15px, 1.1vw, 17px);
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--text-light);
   margin: 0 0 var(--space-32);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: 640px;
 }
 
-.hero-badges {
+.fv-badges {
   list-style: none;
   margin: 0 0 var(--space-24);
   padding: 0;
@@ -299,23 +288,22 @@ a:focus-visible {
   gap: var(--space-16);
 }
 
-.hero-badges li {
+.fv-badges li {
   font-size: 14px;
-  color: var(--white);
+  color: var(--primary);
   font-weight: 500;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(26, 77, 46, 0.08);
   border-radius: var(--radius);
-  backdrop-filter: blur(4px);
 }
 
-.hero-micro {
+.fv-micro {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-light);
   margin: 0 0 var(--space-24);
 }
 
-.hero-content .btn {
+.fv-intro .btn {
   margin-top: var(--space-8);
 }
 
@@ -614,16 +602,19 @@ a:focus-visible {
 
 /* ========== Responsive ========== */
 @media (max-width: 1024px) {
-  .hero-inner {
-    justify-content: center;
+  .hero {
+    max-width: 100%;
   }
 
-  .hero-content {
-    max-width: none;
+  .fv-intro {
     text-align: center;
   }
 
-  .hero-badges {
+  .fv-sub {
+    max-width: none;
+  }
+
+  .fv-badges {
     justify-content: center;
   }
 
@@ -677,7 +668,7 @@ a:focus-visible {
 }
 
 @media (max-width: 480px) {
-  .hero-badges {
+  .fv-badges {
     flex-direction: column;
     align-items: center;
   }

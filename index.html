@@ -34,13 +34,19 @@
   </header>
 
   <main>
-    <section class="hero" id="hero" aria-label="メインビジュアル">
+    <section class="hero hero-yamashita" id="hero" aria-label="メインビジュアル">
       <div class="hero-inner">
-        <img src="images/1.png" alt="奈良県議会議員 山田洋平" class="hero-img">
+        <div class="hero-bg" style="background-image: url('images/山田氏本人/1.png');" role="img" aria-label="山田洋平"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-org">日本維新の会</p>
+          <h1 class="hero-name">山田洋平</h1>
+        </div>
       </div>
     </section>
 
-    <section class="section fv-intro" id="fv-intro" aria-labelledby="fv-intro-heading">
+    <section class="section-bar section-bar-news" id="fv-intro" aria-labelledby="fv-intro-heading">
+      <div class="bar-label">新着情報</div>
       <div class="container">
         <!-- 山下知事サイト風：トップで数字を前面に -->
         <div class="fv-results-teaser">
@@ -59,23 +65,13 @@
         </ul>
         <p class="fv-micro">活動報告や議会の要点はLINEで発信しています。登録無料。</p>
         <a href="#cta" class="btn btn-accent">LINEで活動報告を受け取る</a>
-        <!-- SNS：href はアカウント確定後に差し替え -->
-        <div class="sns-block" aria-label="SNS">
-          <p class="sns-label">SNS</p>
-          <ul class="sns-list" role="list">
-            <li><a href="#" class="sns-link" aria-label="X（旧Twitter）" title="X（旧Twitter）" data-sns="x"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
-            <li><a href="#" class="sns-link" aria-label="Facebook" title="Facebook" data-sns="facebook"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
-            <li><a href="#" class="sns-link" aria-label="Instagram" title="Instagram" data-sns="instagram"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
-            <li><a href="#" class="sns-link" aria-label="YouTube" title="YouTube" data-sns="youtube"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
-            <li><a href="#cta" class="sns-link" aria-label="LINE公式" title="LINE公式" data-sns="line"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c.349 0 .63.283.63.629 0 .346-.281.63-.63.63H9.231c-.345 0-.63-.284-.63-.63V8.108c0-.345.285-.63.63-.63h6.279c.346 0 .629.285.629.63 0 .349-.283.63-.63.63H9.861v1.125h4.649c.348 0 .63.283.63.63 0 .345-.282.629-.63.629H9.861v1.125h5.649zm-5.649-4.504v1.125c0 .345-.285.63-.63.63H4.597c-.345 0-.627-.285-.627-.63V8.108c0-.345.282-.63.63-.63h4.624c.345 0 .63.285.63.63 0 .349-.285.63-.63.63H5.227v1.125h3.764c.346 0 .63.283.63.63 0 .345-.284.629-.63.629H4.597c-.345 0-.63-.284-.63-.629V8.108c0-.345.285-.63.63-.63h4.624c.345 0 .63.285.63.63 0 .349-.285.63-.63.63zm-2.386 2.254v-1.125h1.755c.348 0 .63-.283.63-.629 0-.346-.282-.63-.63-.63H2.386c-.345 0-.63.284-.63.63v3.016c0 .345.285.629.63.629h2.386c.346 0 .63-.284.63-.63 0-.346-.284-.63-.63-.63H3.016v-1.125h1.755c.349 0 .63-.285.63-.63 0-.349-.281-.63-.63-.63zm16.524-4.379c0-.423-.033-.83-.095-1.222H24c-.063.391-.095.799-.095 1.222v12.741c0 .423.032.83.095 1.222h-2.647c-.062-.392-.095-.799-.095-1.222V6.75zM0 18.75c0 .423.032.83.095 1.222h2.647c.062-.392.095-.799.095-1.222V6.009c0-.423-.032-.83-.095-1.222H.095C.032 5.179 0 5.586 0 6.009V18.75z"/></svg></a></li>
-          </ul>
-        </div>
       </div>
     </section>
 
     <section class="section section-message" id="message" aria-labelledby="message-heading">
+      <div class="bar-label">ごあいさつ</div>
       <div class="container">
-        <h2 id="message-heading" class="section-title">ごあいさつ</h2>
+        <h2 id="message-heading" class="section-title section-title-visually-hidden">ごあいさつ</h2>
         <p class="section-lead">県民の皆さまと同じ目線で、奈良の「お金」と「暮らし」と「未来」に向き合います。</p>
         <div class="message-greeting-wrap">
           <div class="message-greeting">
@@ -108,9 +104,19 @@
       </div>
     </section>
 
-    <section class="section section-video" id="video" aria-labelledby="video-heading">
-      <div class="container container-narrow">
-        <h2 id="video-heading" class="section-title">動画</h2>
+    <section class="section section-video section-video-yamashita" id="video" aria-labelledby="video-heading">
+      <div class="bar-label">動画・SNS</div>
+      <div class="container">
+        <div class="video-sns-row">
+          <ul class="sns-list sns-list-inline" role="list" aria-label="SNS">
+            <li><a href="#" class="sns-link sns-link-box" aria-label="X" data-sns="x"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+            <li><a href="#" class="sns-link sns-link-box" aria-label="Facebook" data-sns="facebook"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+            <li><a href="#" class="sns-link sns-link-box" aria-label="Instagram" data-sns="instagram"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+            <li><a href="#" class="sns-link sns-link-box" aria-label="YouTube" data-sns="youtube"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
+            <li><a href="#cta" class="sns-link sns-link-box" aria-label="LINE" data-sns="line"><svg class="sns-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c.349 0 .63.283.63.629 0 .346-.281.63-.63.63H9.231c-.345 0-.63-.284-.63-.63V8.108c0-.345.285-.63.63-.63h6.279c.346 0 .629.285.629.63 0 .349-.283.63-.63.63H9.861v1.125h4.649c.348 0 .63.283.63.63 0 .345-.282.629-.63.629H9.861v1.125h5.649zm-5.649-4.504v1.125c0 .345-.285.63-.63.63H4.597c-.345 0-.627-.285-.627-.63V8.108c0-.345.282-.63.63-.63h4.624c.345 0 .63.285.63.63 0 .349-.285.63-.63.63H5.227v1.125h3.764c.346 0 .63.283.63.63 0 .345-.284.629-.63.629H4.597c-.345 0-.63-.284-.63-.629V8.108c0-.345.285-.63.63-.63h4.624c.345 0 .63.285.63.63 0 .349-.285.63-.63.63zm-2.386 2.254v-1.125h1.755c.348 0 .63-.283.63-.629 0-.346-.282-.63-.63-.63H2.386c-.345 0-.63.284-.63.63v3.016c0 .345.285.629.63.629h2.386c.346 0 .63-.284.63-.63 0-.346-.284-.63-.63-.63H3.016v-1.125h1.755c.349 0 .63-.285.63-.63 0-.349-.281-.63-.63-.63zm16.524-4.379c0-.423-.033-.83-.095-1.222H24c-.063.391-.095.799-.095 1.222v12.741c0 .423.032.83.095 1.222h-2.647c-.062-.392-.095-.799-.095-1.222V6.75zM0 18.75c0 .423.032.83.095 1.222h2.647c.062-.392.095-.799.095-1.222V6.009c0-.423-.032-.83-.095-1.222H.095C.032 5.179 0 5.586 0 6.009V18.75z"/></svg></a></li>
+          </ul>
+        </div>
+        <h2 id="video-heading" class="section-title section-title-visually-hidden">動画</h2>
         <p class="section-lead">山田洋平の活動や想いを、動画でお伝えしています。</p>
         <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/d9VmTlS85EY?si=uiy1uH-Y4reenHsM" title="山田洋平 動画" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen width="560" height="315"></iframe>
@@ -119,8 +125,9 @@
     </section>
 
     <section class="section section-policy" id="policy" aria-labelledby="policy-heading">
+      <div class="bar-label bar-label-policy">未来へ挑む　挑戦するリーダーを</div>
       <div class="container">
-        <h2 id="policy-heading" class="section-title">政策</h2>
+        <h2 id="policy-heading" class="section-title section-title-visually-hidden">政策</h2>
         <p class="section-lead">議会や街頭、地域の現場でいただいた声を、具体的な政策に落とし込みました。口約束ではなく、数字と仕組みで実現を目指します。</p>
         <figure class="section-img section-img-policy">
           <img src="images/asm_question.jpg" alt="議会・政策を語る" width="1200" height="600" loading="lazy">
@@ -160,20 +167,23 @@
       </div>
     </section>
 
-    <section class="section section-results" id="results" aria-labelledby="results-heading">
+    <section class="section section-results section-results-yamashita" id="results" aria-labelledby="results-heading">
+      <div class="bar-label">県民の皆様の声に、真摯に向き合います</div>
       <div class="container">
-        <h2 id="results-heading" class="section-title">実績</h2>
-        <p class="section-lead">口先だけでなく、数字と行動で示します。改革を、具体的な「数字」で証明しています。</p>
-        <div class="results-highlights">
-          <div class="results-big">
-            <span class="results-number">200</span>
-            <span class="results-unit">万円</span>
-            <p class="results-desc">政務活動費 全額返還（2023年度）</p>
+        <h2 id="results-heading" class="section-title section-title-visually-hidden">実績</h2>
+        <p class="section-lead">口先だけでなく、数字と行動で示します。</p>
+        <div class="results-highlights results-highlights-yamashita">
+          <div class="results-big-box">
+            <div class="results-big-box-header">政務活動費 返還</div>
+            <div class="results-big-box-num">200</div>
+            <div class="results-big-box-unit">万円</div>
+            <p class="results-big-box-desc">2023年度 全額を県に返還</p>
           </div>
-          <div class="results-big">
-            <span class="results-number">125</span>
-            <span class="results-unit">万円以上</span>
-            <p class="results-desc">議員報酬 自主削減 累計</p>
+          <div class="results-big-box">
+            <div class="results-big-box-header">議員報酬 自主削減</div>
+            <div class="results-big-box-num">125</div>
+            <div class="results-big-box-unit">万円以上</div>
+            <p class="results-big-box-desc">累計（被災地支援等に充てています）</p>
           </div>
         </div>
         <ul class="results-list">
@@ -249,8 +259,8 @@
         <h2 id="profile-heading" class="section-title">山田洋平 プロフィール</h2>
         <div class="profile-inner">
           <figure class="profile-photos">
-            <img src="images/prf_official.jpg" alt="山田洋平 公式写真" width="400" height="300" loading="lazy">
-            <img src="images/prf_street.jpg" alt="街頭・地域で" width="400" height="300" loading="lazy">
+            <img src="images/山田氏本人/1.png" alt="山田洋平" width="400" height="300" loading="lazy">
+            <img src="images/山田氏本人/2.png" alt="山田洋平" width="400" height="300" loading="lazy">
           </figure>
           <div class="profile-main">
             <p class="profile-name">山田 洋平（やまだ ようへい）</p>
@@ -285,7 +295,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer footer-yamashita">
     <div class="container">
       <p class="footer-name">奈良県議会議員 山田洋平</p>
       <p class="footer-org">日本維新の会 奈良県総支部</p>

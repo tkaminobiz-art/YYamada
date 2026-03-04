@@ -5,12 +5,17 @@
 :root {
   --primary: #1a4d2e;
   --primary-dark: #0f3320;
+  --primary-light: #2e7d4a;
   --accent: #c4851f;
+  --accent-yellow: #f9a825;
   --bg: #FAFAF7;
   --text: #1C1C1C;
   --text-light: #777777;
   --navy: #1B365D;
   --white: #fff;
+  --bar-green: #e0f2e9;
+  --teal: #00695c;
+  --teal-dark: #004d40;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --space-8: 8px;
   --space-16: 16px;
@@ -102,6 +107,18 @@ a:focus-visible {
   color: var(--text-light);
   margin: 0 0 var(--space-48);
   max-width: 640px;
+}
+
+.section-title-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Buttons */
@@ -259,28 +276,100 @@ a:focus-visible {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ========== Hero（画像のみ・ノートPCで全体表示）========== */
+/* ========== Hero（山下知事サイト風：写真+グラデ+名前オーバーレイ）========== */
 .hero {
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-.hero-inner {
+.hero-yamashita .hero-inner {
   position: relative;
   width: 100%;
-  line-height: 0;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-48) var(--space-24);
 }
 
-.hero-img {
-  width: 100%;
-  height: auto;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 77, 46, 0.75) 0%, rgba(15, 51, 32, 0.9) 50%, rgba(0, 77, 64, 0.85) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-org {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--space-16);
+}
+
+.hero-name {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  font-size: clamp(48px, 10vw, 96px);
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin: 0;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 769px) {
+  .hero-name {
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ========== セクションバー（山下知事サイト風・新着情報）========== */
+.section-bar {
+  padding-top: 0;
+  padding-bottom: var(--space-80);
+}
+
+.section-bar .bar-label {
   display: block;
-  vertical-align: top;
-  object-fit: contain;
-  object-position: center top;
+  width: 100%;
+  padding: var(--space-16) var(--space-24);
+  background: var(--bar-green);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--primary-dark);
+  margin-bottom: var(--space-48);
+}
+
+.section-bar-news .container {
+  padding-top: 0;
+}
+
+.section-message .bar-label,
+.section-policy .bar-label,
+.section-results .bar-label {
+  background: var(--bar-green);
+}
+
+.bar-label-policy {
+  background: linear-gradient(90deg, var(--bar-green) 0%, rgba(249, 168, 37, 0.15) 100%);
 }
 
 /* ========== FV下のテキストセクション ========== */
@@ -461,11 +550,39 @@ a:focus-visible {
   height: 22px;
 }
 
-/* ========== 動画セクション ========== */
+/* ========== 動画セクション（山下風・SNS上・バー）========== */
 .section-video {
-  background: rgba(26, 77, 46, 0.04);
-  padding-top: var(--space-80);
+  background: var(--bar-green);
+  padding-top: 0;
   padding-bottom: var(--space-120);
+}
+
+.section-video-yamashita .bar-label {
+  margin-bottom: var(--space-32);
+}
+
+.video-sns-row {
+  margin-bottom: var(--space-32);
+}
+
+.sns-list-inline {
+  justify-content: flex-start;
+  gap: var(--space-12);
+}
+
+.sns-link-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text);
+}
+
+.sns-link-box:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
 }
 
 .video-wrap {
@@ -492,9 +609,11 @@ a:focus-visible {
   padding: var(--space-120) 0;
 }
 
-.section-message { background: var(--bg); padding-top: var(--space-80); padding-bottom: 160px; }
-.section-policy { background: rgba(26, 77, 46, 0.04); padding-top: 100px; padding-bottom: var(--space-120); }
-.section-results { background: var(--bg); padding-top: 100px; }
+.section-message { background: var(--bg); padding-top: 0; padding-bottom: 160px; }
+.section-message .container { padding-top: var(--space-48); }
+.section-policy { background: rgba(26, 77, 46, 0.04); padding-top: 0; padding-bottom: var(--space-120); }
+.section-policy .container { padding-top: var(--space-48); }
+.section-results { background: var(--bg); padding-top: 0; }
 .section-assembly { background: rgba(27, 54, 93, 0.04); padding-top: var(--space-120); padding-bottom: 100px; }
 .section-activity { background: var(--bg); padding-top: 100px; }
 .section-profile { background: var(--bg); padding-bottom: 160px; }
@@ -681,12 +800,65 @@ a:focus-visible {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* ========== RESULTS（実績・数字を前面に）========== */
+/* ========== RESULTS（山下風・2大ボックス＋既存カード）========== */
+.section-results-yamashita {
+  background: var(--bar-green);
+  padding-top: 0;
+  padding-bottom: var(--space-120);
+}
+
+.section-results-yamashita .bar-label {
+  margin-bottom: var(--space-48);
+}
+
 .results-highlights {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-32);
   margin-bottom: var(--space-48);
+}
+
+.results-highlights-yamashita {
+  margin-bottom: var(--space-64);
+}
+
+.results-big-box {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.results-big-box-header {
+  padding: var(--space-16) var(--space-24);
+  background: var(--teal-dark);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.results-big-box-num {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  font-size: clamp(56px, 10vw, 80px);
+  line-height: 1;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  padding: var(--space-32) var(--space-24) 0;
+}
+
+.results-big-box-unit {
+  font-size: 20px;
+  color: var(--text-light);
+  padding: 0 var(--space-24);
+}
+
+.results-big-box-desc {
+  margin: var(--space-16) var(--space-24) var(--space-24);
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 .results-big {
@@ -938,12 +1110,16 @@ a:focus-visible {
   text-decoration: none;
 }
 
-/* ========== Footer ========== */
+/* ========== Footer（山下風・ダークティール）========== */
 .footer {
   padding: var(--space-48) 0;
   background: var(--text);
   color: var(--white);
   text-align: center;
+}
+
+.footer-yamashita {
+  background: var(--teal-dark);
 }
 
 .footer-name {
@@ -963,6 +1139,10 @@ a:focus-visible {
 
 /* ========== Responsive ========== */
 @media (max-width: 1024px) {
+  .hero-yamashita .hero-inner {
+    min-height: 60vh;
+  }
+
   .hero {
     max-width: 100%;
   }
@@ -973,6 +1153,10 @@ a:focus-visible {
 
   .sns-list {
     justify-content: center;
+  }
+
+  .results-highlights-yamashita {
+    grid-template-columns: 1fr;
   }
 
   .message-greeting-wrap {
